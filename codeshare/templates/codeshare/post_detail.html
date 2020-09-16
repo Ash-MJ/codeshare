@@ -1,0 +1,22 @@
+{% extends 'codeshare/base.html' %}
+
+{% block content %}
+    <div class="post">
+        {% if post.published_date %}
+            <div class="date">
+                {{ post.published_date }}
+            </div>
+        {% endif %}
+        {% if user.is_authenticated %}
+    	 <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+		{% endif %}
+        <h4>C Code</h4>
+        <p>{{ post.c_code|linebreaksbr }}</p>
+        <h4>CPP Code</h4>
+        <p>{{ post.cpp_code|linebreaksbr }}</p>
+        <h4>PYTHON Code</h4>
+        <p>{{ post.p_code|linebreaksbr }}</p>
+        <h4>JAVA Code</h4>
+        <p>{{ post.j_code|linebreaksbr }}</p>
+    </div>
+{% endblock %}

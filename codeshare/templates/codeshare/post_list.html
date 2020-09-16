@@ -1,0 +1,17 @@
+{% extends 'codeshare/base.html' %}
+{% block content %}
+        {% for post in posts %}
+            <div>
+                <p>published: {{ post.published_date }}</p>
+                <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
+                <h4>C Code</h4>
+                <p>{{ post.c_code|linebreaksbr }}</p>
+                <h4>CPP Code</h4>
+                <p>{{ post.cpp_code|linebreaksbr }}</p>
+                <h4>PYTHON Code</h4>
+                <p>{{ post.p_code|linebreaksbr }}</p>
+                <h4>JAVA Code</h4>
+                <p>{{ post.j_code|linebreaksbr }}</p>
+            </div>
+        {% endfor %}
+{% endblock %}
